@@ -21,7 +21,41 @@ __version__ = '0.9'
 import json
 import datetime
 import copy
+import zipfile
+import os
 
+class VQADataset(object):
+    """
+    This class helps with unzipping the Images in the right locations. It is only used for unzipping the Images
+    provided by the Google Drive for the UPC class.
+    """
+
+    def imageUnzip(self, VQA_folder):
+        """
+        This function unzips the Images from the given google drive path
+        :param VQA_folder: the folder downloaded from the google drive
+        :return: unzipped files
+        """
+
+        imgDir = '{}/Images/'.format(VQA_folder)
+
+        for file in os.listdir(imgDir):
+
+            if file.endswith(".zip"):
+
+                zip_ref = zipfile.ZipFile(os.path.join(imgDir, file), 'r')
+
+                uncompress_size = sum((_file.file_size for _file in zip_ref.infolist()))
+
+                extracted_size = 0
+
+                for _file in zip_ref.infolist():
+
+                    extracted_size += _file.file_size
+                    print("%s %%\r" % (extracted_size * 100/uncompress_size), flush=True)
+                    zip_ref.extract(_file, path=imgDir)
+
+                zip_ref.close()
 
 class VQA:
     def __init__(self, annotation_file=None, question_file=None):
