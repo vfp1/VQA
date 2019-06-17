@@ -1,5 +1,7 @@
 Python API and Evaluation Code for v2.0 and v1.0 releases of the VQA dataset.
 ===================
+This is a Python installable package based on the fork from this repository made by Aishwarya Agrawal to update this VQA helpers to Python 3.
+
 ## VQA v2.0 release ##
 This release consists of
 - Real 
@@ -78,3 +80,6 @@ There are two types of tasks
 - Aishwarya Agrawal (Virginia Tech)
 - Code for API is based on [MSCOCO API code](https://github.com/pdollar/coco).
 - The format of the code for evaluation is based on [MSCOCO evaluation code](https://github.com/tylin/coco-caption).
+
+## Builder of installer wheels
+- Victor Pajuelo Madrigal
