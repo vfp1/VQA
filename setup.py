@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='vqaHelpers',
-     version='0.3_unzip_capabilities',
+     version='0.4_faster_unzip_capabilities',
      scripts=['vqaHelpers/vqaIngestion.py', 'vqaHelpers/vqaEval.py'] ,
      author="Victor Pajuelo Madrigal",
      author_email="victor@eogora.com",
